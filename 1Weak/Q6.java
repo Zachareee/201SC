@@ -25,7 +25,7 @@ public class Q6 {
     public static boolean matchStrings(String str1, String str2) {
         int length = str2.length();
         int start = -1;
-        String game = "";
+        String alignment = "";
 
         for (int i = 0; i < length; i++) {
             char letter = str2.charAt(i);
@@ -34,13 +34,13 @@ public class Q6 {
                 return false;
             }
 
-            game += " ".repeat(idx - start - 1);
-            game += letter;
+            alignment += " ".repeat(idx - start - 1);
+            alignment += letter;
             start = idx;
         }
 
         System.out.println(str1);
-        System.out.println(game);
+        System.out.println(alignment);
         return true;
     }
 }
