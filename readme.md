@@ -14,3 +14,9 @@
 [Q6](https://github.com/Zachareee/201SC/blob/main/1Weak/Q6.java)
 
 [Q7](https://github.com/Zachareee/201SC/blob/main/1Weak/Q7.java)
+
+[Q8BinaryConverter](https://github.com/Zachareee/201SC/blob/main/1Weak/Q8BinaryConverter.java)
+
+[Q8BinaryToText](https://github.com/Zachareee/201SC/blob/main/1Weak/Q8BinaryToText.java)
+
+[Q8TextToBinary](https://github.com/Zachareee/201SC/blob/main/1Weak/Q8TextToBinary.java)
