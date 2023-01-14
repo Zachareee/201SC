@@ -16,8 +16,9 @@ public class BrosMenu {
      * are initialized here.
      */
     public BrosMenu() {
-        // TODO
-        // initialize the DAO objects
+        studentDAO = new StudentDAO();
+        facilityDAO = new FacilityDAO();
+        bookingDAO = new BookingDAO(studentDAO, facilityDAO);
     }    
 
     /**
@@ -86,8 +87,7 @@ public class BrosMenu {
         System.out.println("== BROS :: List all Students ==");
         System.out.println("S/N   Username    Name               E$");
 
-        StudentDAO SDAO = new StudentDAO();
-        ArrayList<Student> StuArray = SDAO.retrieveAll();
+        ArrayList<Student> StuArray = studentDAO.retrieveAll();
         int size = StuArray.size();
         if (size == 0) {
             System.out.println("There is no student");
@@ -96,27 +96,54 @@ public class BrosMenu {
         for (int i = 0; i < size; i++) {
             Student current = StuArray.get(i);
             System.out.print(i + 1);
-            System.out.print("   " + current.getUsername());
+            System.out.print("     " + current.getUsername());
             System.out.print("    " + current.getName());
             System.out.println("               " + current.getBalance());
         }
     }
-
+    
     /**
      * Process the request of listing all facilities in the system.
      */
     public void processListAllFacilities() {
-        // TODO
         System.out.println("== BROS :: List all Facilities ==");
         System.out.println("S/N    ID    Description   Capacity");
-        
+        ArrayList<Facility> FacilArray = facilityDAO.retrieveAll();
+        int size = FacilArray.size();
+        if (size == 0) {
+            System.out.println("There is no facility");
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            Facility current = FacilArray.get(i);
+            System.out.print(i + 1);
+            System.out.print(".     " + current.getId());
+            System.out.print("    " + current.getDescription());
+            System.out.println("   " + current.getCapacity());
+        }
     }
-
+    
     /**
      * Process the request of listing all bookings in the system.
      */
     public void processListAllBookings() {
-        // TODO
+        System.out.println("== BROS :: List all Bookings ==");
+        System.out.println("Facility  Booking DateTime  Start DateTime    Duration   Student");
+        ArrayList<Booking> BookArray = bookingDAO.retrieveAll();
+        int size = BookArray.size();
+        if (size == 0) {
+            System.out.println("There is no booking");
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            Booking current = BookArray.get(i);
+            System.out.print(current.getFacility());
+            System.out.print("  " + current.getBookingDate());
+            System.out.print("  " + current.getStartDate());
+            System.out.print("  " + current.getDuration());
+            System.out.println("   " + current.getStudent());
+        }
+        
     }
 
     /**
