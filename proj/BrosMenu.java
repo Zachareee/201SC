@@ -45,43 +45,61 @@ public class BrosMenu {
      * and then invoke the processXX method to process the request.
      */
     public void execute() {
-        // TODO
-        // should continue to loop until the user chooses to quit
-        displayMenu();
+        int choice;
         Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
+        do {
+            displayMenu();
+            choice = sc.nextInt();
 
-        switch (choice) {
-            case 1:
-                processListAllStudent();
-                break;
-            case 2:
-                processListAllFacilities();
-                break;
-            case 3:
-                processListAllBookings();
-                break;
-            case 4:
-                processListAllBookingByAStudent();
-                break;
-            case 5:
-                processAddAStudent();
-                break;
-            case 6:
-                processBookAFacility();
-                break;
-            case 7:
-                break;
-            default:
-                System.out.println("You did not enter a valid option (1 to 7)");
-        }
+            switch (choice) {
+                case 1:
+                    processListAllStudent();
+                    break;
+                case 2:
+                    processListAllFacilities();
+                    break;
+                case 3:
+                    processListAllBookings();
+                    break;
+                case 4:
+                    processListAllBookingByAStudent();
+                    break;
+                case 5:
+                    processAddAStudent();
+                    break;
+                case 6:
+                    processBookAFacility();
+                    break;
+                case 7:
+                    break;
+                default:
+                    System.out.println("You did not enter a valid option (1 to 7)");
+            }
+        } while (choice != 7);
+        sc.close();
     }
 
     /**
      * Process the request of listing all students in the system.
      */
     public void processListAllStudent() {
-        // TODO
+        System.out.println("== BROS :: List all Students ==");
+        System.out.println("S/N   Username    Name               E$");
+
+        StudentDAO SDAO = new StudentDAO();
+        ArrayList<Student> StuArray = SDAO.retrieveAll();
+        int size = StuArray.size();
+        if (size == 0) {
+            System.out.println("There is no student");
+            return;
+        }
+        for (int i = 0; i < size; i++) {
+            Student current = StuArray.get(i);
+            System.out.print(i + 1);
+            System.out.print("   " + current.getUsername());
+            System.out.print("    " + current.getName());
+            System.out.println("               " + current.getBalance());
+        }
     }
 
     /**
@@ -89,6 +107,9 @@ public class BrosMenu {
      */
     public void processListAllFacilities() {
         // TODO
+        System.out.println("== BROS :: List all Facilities ==");
+        System.out.println("S/N    ID    Description   Capacity");
+        
     }
 
     /**
