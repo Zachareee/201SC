@@ -63,13 +63,13 @@ public class BrosMenu {
                     processListAllBookings();
                     break;
                 case 4:
-                    processListAllBookingByAStudent();
+                    processListAllBookingByAStudent(sc);
                     break;
                 case 5:
                     processAddAStudent(sc);
                     break;
                 case 6:
-                    processBookAFacility();
+                    processBookAFacility(sc);
                     break;
                 case 7:
                     break;
@@ -84,7 +84,7 @@ public class BrosMenu {
      * Process the request of listing all students in the system.
      */
     public void processListAllStudent() {
-        System.out.println("== BROS :: List all Students ==\n");
+        System.out.println("== BROS :: List all Students ==");
         System.out.println("S/N   Username    Name               E$");
 
         ArrayList<Student> StuArray = studentDAO.retrieveAll();
@@ -106,7 +106,7 @@ public class BrosMenu {
      * Process the request of listing all facilities in the system.
      */
     public void processListAllFacilities() {
-        System.out.println("== BROS :: List all Facilities ==\n");
+        System.out.println("== BROS :: List all Facilities ==");
         System.out.println("S/N    ID    Description   Capacity");
         ArrayList<Facility> FacilArray = facilityDAO.retrieveAll();
         int size = FacilArray.size();
@@ -127,7 +127,7 @@ public class BrosMenu {
      * Process the request of listing all bookings in the system.
      */
     public void processListAllBookings() {
-        System.out.println("== BROS :: List all Bookings ==\n");
+        System.out.println("== BROS :: List all Bookings ==");
         System.out.println("Facility  Booking DateTime  Start DateTime    Duration   Student");
         ArrayList<Booking> BookArray = bookingDAO.retrieveAll();
         int size = BookArray.size();
@@ -153,7 +153,7 @@ public class BrosMenu {
      */
     public void processAddAStudent(Scanner sc) {
         // TODO
-        System.out.println("== BROS :: Add a Student ==\n");
+        System.out.println("== BROS :: Add a Student ==");
         System.out.print("Enter username >");
         String username = sc.nextLine();
         if (studentDAO.retrieve(username) != null) {
@@ -161,14 +161,14 @@ public class BrosMenu {
             return;
         }
 
-        System.out.print("\nEnter name >");
+        System.out.print("Enter name >");
         String name = sc.nextLine();
 
-        System.out.print("\nEnter the E$ >");
+        System.out.print("Enter the E$ >");
         int money = sc.nextInt();
 
         studentDAO.add(username, name, money);
-        System.out.println('\n' + name + " added!");
+        System.out.println(name + " added!");
     }
 
 
@@ -177,8 +177,33 @@ public class BrosMenu {
      * 1. Prompts the user for the username
      * 2. Displays the list of bookings by the student
      */
-    public void processListAllBookingByAStudent() {
-        // TODO
+    public void processListAllBookingByAStudent(Scanner sc) {
+        System.out.print("Enter username >");
+        String username = sc.nextLine();
+
+        System.out.println();
+        if (studentDAO.retrieve(username) == null) {
+            System.out.println("The username is invalid");
+            return;
+        }
+
+        ArrayList<Booking> bookings = bookingDAO.retrieve(username);
+        int size = bookings.size();
+
+        if (size == 0) {
+            System.out.println("This student has not made any booking");
+            return;
+        }
+
+        System.out.println("== BROS :: Bookings by " + username + " ==");
+        System.out.println("Facility   Booking DateTime  Start DateTime    Duration");
+        for (int i = 0; i < size; i++) {
+            Booking current = bookings.get(i);
+            System.out.print(current.getFacility());
+            System.out.print("   " + current.getBookingDate());
+            System.out.print("  " + current.getStartDate());
+            System.out.println("    " + current.getDuration());
+        }
     }
 
     /**
@@ -187,7 +212,57 @@ public class BrosMenu {
      * 2. Perform the validations (in the writeup). For example, insufficient balance etc
      * 3. Adds the booking object to the list managed by the BookingDAO
      */
-    public void processBookAFacility() {
-        // TODO
+    public void processBookAFacility(Scanner sc) {
+        System.out.println("== BROS :: Book a Facility ==");
+        System.out.print("Enter username >");
+        String username = sc.nextLine();
+        Student student = studentDAO.retrieve(username);
+        
+        while (student == null) {
+            System.out.println("The username is invalid. Please try again.");
+            System.out.print("Enter username >");
+            username = sc.nextLine();
+            student = studentDAO.retrieve(username);
+        }
+
+        System.out.print("Enter facility ID >");
+        String facilityID = sc.nextLine().trim();
+        Facility facility = facilityDAO.retrieve(facilityID);
+        
+        while (facility == null) {
+            System.out.println("Facility is not available for booking. Please try again.");
+            System.out.print("Enter facility ID >");
+            facilityID = sc.nextLine().trim();
+            facility = facilityDAO.retrieve(facilityID);
+        }
+
+        System.out.print("Enter start date (DD/MM/YYYY) >");
+        String startDate = sc.nextLine();
+        
+        System.out.print("Enter start time (HH:00) >");
+        String startTime = sc.nextLine();
+        BrosDate start = new BrosDate(startDate + ' ' + startTime);
+        
+        System.out.print("Enter number of hours >");
+        int duration = sc.nextInt();.
+
+        Booking newBooking = new Booking(student, facility, start, duration);
+
+        if (!bookingDAO.add(newBooking)) {
+            System.out.println("Booking overlaps with another booking. Please try again.");
+            return;
+        }
+
+        int balance = student.getBalance();
+        int cost = 2 * duration;
+        if (balance < cost) {
+            System.out.println("You have E$ " + balance + " left");
+            System.out.println("You do not have enough E$ to book this facility.");
+            return;
+        }
+
+        student.deduct(cost);
+        System.out.println("You have successfully booked this facility.");
+        System.out.println("You have " + (balance - cost) + " E$ left.");
     }
 }
