@@ -152,7 +152,7 @@ public class BrosMenu {
      * 2. Adds the student object to the list managed by the StudentDAO.
      */
     public void processAddAStudent(Scanner sc) {
-        // TODO
+        sc.nextLine();
         System.out.println("== BROS :: Add a Student ==");
         System.out.print("Enter username >");
         String username = sc.nextLine();
@@ -178,6 +178,7 @@ public class BrosMenu {
      * 2. Displays the list of bookings by the student
      */
     public void processListAllBookingByAStudent(Scanner sc) {
+        sc.nextLine();
         System.out.print("Enter username >");
         String username = sc.nextLine();
 
@@ -213,6 +214,7 @@ public class BrosMenu {
      * 3. Adds the booking object to the list managed by the BookingDAO
      */
     public void processBookAFacility(Scanner sc) {
+        sc.nextLine();
         System.out.println("== BROS :: Book a Facility ==");
         System.out.print("Enter username >");
         String username = sc.nextLine();
@@ -244,7 +246,7 @@ public class BrosMenu {
         BrosDate start = new BrosDate(startDate + ' ' + startTime);
         
         System.out.print("Enter number of hours >");
-        int duration = sc.nextInt();.
+        int duration = sc.nextInt();
 
         Booking newBooking = new Booking(student, facility, start, duration);
 
