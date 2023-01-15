@@ -26,7 +26,7 @@ public class BrosMenu {
      */
     public void displayMenu() {
         System.out.println();
-        System.out.println("== BROS :: Main Menu ==");
+        System.out.println("== BROS :: Main Menu ==\n");
         System.out.println("1. List all Students");
         System.out.println("2. List all Facilities");
         System.out.println("3. List all Bookings");
@@ -66,7 +66,7 @@ public class BrosMenu {
                     processListAllBookingByAStudent();
                     break;
                 case 5:
-                    processAddAStudent();
+                    processAddAStudent(sc);
                     break;
                 case 6:
                     processBookAFacility();
@@ -84,7 +84,7 @@ public class BrosMenu {
      * Process the request of listing all students in the system.
      */
     public void processListAllStudent() {
-        System.out.println("== BROS :: List all Students ==");
+        System.out.println("== BROS :: List all Students ==\n");
         System.out.println("S/N   Username    Name               E$");
 
         ArrayList<Student> StuArray = studentDAO.retrieveAll();
@@ -106,7 +106,7 @@ public class BrosMenu {
      * Process the request of listing all facilities in the system.
      */
     public void processListAllFacilities() {
-        System.out.println("== BROS :: List all Facilities ==");
+        System.out.println("== BROS :: List all Facilities ==\n");
         System.out.println("S/N    ID    Description   Capacity");
         ArrayList<Facility> FacilArray = facilityDAO.retrieveAll();
         int size = FacilArray.size();
@@ -127,7 +127,7 @@ public class BrosMenu {
      * Process the request of listing all bookings in the system.
      */
     public void processListAllBookings() {
-        System.out.println("== BROS :: List all Bookings ==");
+        System.out.println("== BROS :: List all Bookings ==\n");
         System.out.println("Facility  Booking DateTime  Start DateTime    Duration   Student");
         ArrayList<Booking> BookArray = bookingDAO.retrieveAll();
         int size = BookArray.size();
@@ -151,8 +151,24 @@ public class BrosMenu {
      * 1. Prompts the user for the username, full name and initial balance of the student.
      * 2. Adds the student object to the list managed by the StudentDAO.
      */
-    public void processAddAStudent() {
+    public void processAddAStudent(Scanner sc) {
         // TODO
+        System.out.println("== BROS :: Add a Student ==\n");
+        System.out.print("Enter username >");
+        String username = sc.nextLine();
+        if (studentDAO.retrieve(username) != null) {
+            System.out.println("username not available");
+            return;
+        }
+
+        System.out.print("\nEnter name >");
+        String name = sc.nextLine();
+
+        System.out.print("\nEnter the E$ >");
+        int money = sc.nextInt();
+
+        studentDAO.add(username, name, money);
+        System.out.println('\n' + name + " added!");
     }
 
 
