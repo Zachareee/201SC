@@ -84,21 +84,27 @@ public class BrosMenu {
      * Process the request of listing all students in the system.
      */
     public void processListAllStudent() {
-        System.out.println("== BROS :: List all Students ==");
-        System.out.println("S/N   Username    Name               E$");
-
         ArrayList<Student> StuArray = studentDAO.retrieveAll();
         int size = StuArray.size();
         if (size == 0) {
             System.out.println("There is no student");
             return;
         }
+
+        System.out.println("== BROS :: List all Students ==\n");
+        System.out.println("S/N   Username    Name                E$");
+
         for (int i = 0; i < size; i++) {
             Student current = StuArray.get(i);
-            System.out.print(i + 1);
-            System.out.print("     " + current.getUsername());
-            System.out.print("    " + current.getName());
-            System.out.println("               " + current.getBalance());
+            System.out.print(i + 1 + "     ");
+
+            String username = current.getUsername();
+            System.out.print(username + " ".repeat(12 - username.length()));
+
+            String name = current.getName();
+            System.out.print(current.getName() + " ".repeat(20 - name.length()));
+
+            System.out.println(current.getBalance());
         }
     }
     
@@ -106,20 +112,22 @@ public class BrosMenu {
      * Process the request of listing all facilities in the system.
      */
     public void processListAllFacilities() {
-        System.out.println("== BROS :: List all Facilities ==");
-        System.out.println("S/N    ID    Description   Capacity");
         ArrayList<Facility> FacilArray = facilityDAO.retrieveAll();
         int size = FacilArray.size();
         if (size == 0) {
             System.out.println("There is no facility");
             return;
         }
+
+        System.out.println("== BROS :: List all Facilities ==\n");
+        System.out.println("S/N    ID    Description   Capacity");
+
         for (int i = 0; i < size; i++) {
             Facility current = FacilArray.get(i);
-            System.out.print(i + 1);
-            System.out.print(".     " + current.getId());
-            System.out.print("    " + current.getDescription());
-            System.out.println("   " + current.getCapacity());
+            System.out.print(i + 1 + ".     ");
+            System.out.print(current.getId() + "    ");
+            System.out.print(current.getDescription() + "   ");
+            System.out.println(current.getCapacity());
         }
     }
     
@@ -127,14 +135,16 @@ public class BrosMenu {
      * Process the request of listing all bookings in the system.
      */
     public void processListAllBookings() {
-        System.out.println("== BROS :: List all Bookings ==");
-        System.out.println("Facility  Booking DateTime  Start DateTime    Duration   Student");
         ArrayList<Booking> BookArray = bookingDAO.retrieveAll();
-        int size = BookArray.size();
-        if (size == 0) {
+        if (BookArray == null) {
             System.out.println("There is no booking");
             return;
         }
+
+        System.out.println("== BROS :: List all Bookings ==\n");
+        System.out.println("Facility  Booking DateTime  Start DateTime    Duration   Student");
+
+        int size = BookArray.size();
         for (int i = 0; i < size; i++) {
             Booking current = BookArray.get(i);
             System.out.print(current.getFacility());
@@ -153,7 +163,7 @@ public class BrosMenu {
      */
     public void processAddAStudent(Scanner sc) {
         sc.nextLine();
-        System.out.println("== BROS :: Add a Student ==");
+        System.out.println("== BROS :: Add a Student ==\n");
         System.out.print("Enter username >");
         String username = sc.nextLine();
         if (studentDAO.retrieve(username) != null) {
@@ -182,7 +192,6 @@ public class BrosMenu {
         System.out.print("Enter username >");
         String username = sc.nextLine();
 
-        System.out.println();
         if (studentDAO.retrieve(username) == null) {
             System.out.println("The username is invalid");
             return;
@@ -196,7 +205,7 @@ public class BrosMenu {
             return;
         }
 
-        System.out.println("== BROS :: Bookings by " + username + " ==");
+        System.out.println("== BROS :: Bookings by " + username + " ==\n");
         System.out.println("Facility   Booking DateTime  Start DateTime    Duration");
         for (int i = 0; i < size; i++) {
             Booking current = bookings.get(i);
@@ -215,7 +224,7 @@ public class BrosMenu {
      */
     public void processBookAFacility(Scanner sc) {
         sc.nextLine();
-        System.out.println("== BROS :: Book a Facility ==");
+        System.out.println("== BROS :: Book a Facility ==\n");
         System.out.print("Enter username >");
         String username = sc.nextLine();
         Student student = studentDAO.retrieve(username);

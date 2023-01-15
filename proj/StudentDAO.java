@@ -12,8 +12,11 @@ public class StudentDAO {
      *
      */
     public StudentDAO() {
-        // TODO
-        // initialize the sample data
+        studentList = new ArrayList<>();
+        studentList.add(new Student("raini", "Rainie Yang", 20));
+        studentList.add(new Student("hyun", "Hyun Bin", 30));
+        studentList.add(new Student("aaron", "Aaron Yang", 40));
+        studentList.add(new Student("simi", "Shiela Sim", 50));
     }
 
     /**
@@ -24,8 +27,7 @@ public class StudentDAO {
      * @return the list of students
      */
     public ArrayList<Student> retrieveAll() {
-        // TODO
-        return null;
+        return studentList;
     }
 
     /**
@@ -35,7 +37,7 @@ public class StudentDAO {
      * @param eDollars the initial balance of the new user
      */
     public void add(String username, String name, int eDollars) {
-        // TODO
+        studentList.add(new Student(username, name, eDollars));
     }
 
     /**
@@ -44,7 +46,11 @@ public class StudentDAO {
      * @return the Student object if found. Otherwise, return null.
      */
     public Student retrieve(String username) {
-        // TODO
+        int size = studentList.size();
+        for (int i = 0; i < size; i++) {
+            Student current = studentList.get(i);
+            if (current.getUsername().equals(username)) return current;
+        }
         return null;
     }
 
