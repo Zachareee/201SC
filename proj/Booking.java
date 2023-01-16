@@ -77,8 +77,7 @@ public class Booking {
      * @return  the booking end date
      */
     public BrosDate getEndDate() {
-        // TODO
-        return null;
+        return startDate.computeDate(duration);
     }
 
     /**
@@ -87,8 +86,7 @@ public class Booking {
      * (taking into consideration the rate of the facility and the duration)
      */
     public int getPrice() {
-        // complete the code
-        return 0;
+        return facility.getPrice();
     }
 
     /**
@@ -105,7 +103,12 @@ public class Booking {
      * @return true if this booking overlaps the other. Otherwise, return false
      */
     public boolean overlaps(Booking another) {
-        // TODO
+        BrosDate endDate = getEndDate();
+        BrosDate anotherStartDate = another.getStartDate();
+        BrosDate anotherEndDate = another.getEndDate();
+        if (startDate.equals(anotherStartDate) || endDate.equals(anotherEndDate)
+        || (anotherStartDate.before(endDate) && anotherEndDate.after(startDate)))
+        return true;
         return false;
     }
 }

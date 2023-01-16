@@ -147,11 +147,11 @@ public class BrosMenu {
         int size = BookArray.size();
         for (int i = 0; i < size; i++) {
             Booking current = BookArray.get(i);
-            System.out.print(current.getFacility());
+            System.out.print(current.getFacility().getId());
             System.out.print("  " + current.getBookingDate());
             System.out.print("  " + current.getStartDate());
             System.out.print("  " + current.getDuration());
-            System.out.println("   " + current.getStudent());
+            System.out.println("   " + current.getStudent().getUsername());
         }
         
     }
@@ -210,7 +210,7 @@ public class BrosMenu {
         for (int i = 0; i < size; i++) {
             Booking current = bookings.get(i);
             System.out.print(current.getFacility());
-            System.out.print("   " + current.getBookingDate());
+            System.out.print("       " + current.getBookingDate());
             System.out.print("  " + current.getStartDate());
             System.out.println("    " + current.getDuration());
         }

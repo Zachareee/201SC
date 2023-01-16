@@ -15,6 +15,32 @@ public class BookingDAO {
     public BookingDAO(StudentDAO studentDAO, FacilityDAO facilityDAO) {
         // TODO
         // initialize the attributes
+        bookingList = new ArrayList<>();
+        bookingList.add(new Booking(studentDAO.retrieve("raini"), 
+                                    facilityDAO.retrieve("F005"), 
+                                    new BrosDate("28/09/2016 16:05"),
+                                    new BrosDate("14/11/2016 15:00"), 
+                                    2));
+        bookingList.add(new Booking(studentDAO.retrieve("hyun"), 
+                                    facilityDAO.retrieve("F006"), 
+                                    new BrosDate("28/09/2016 16:05"),
+                                    new BrosDate("14/11/2016 15:00"), 
+                                    2));
+        bookingList.add(new Booking(studentDAO.retrieve("aaron"), 
+                                    facilityDAO.retrieve("F003"), 
+                                    new BrosDate("29/09/2016 16:06"),
+                                    new BrosDate("15/11/2016 13:00"), 
+                                    1));
+        bookingList.add(new Booking(studentDAO.retrieve("aaron"), 
+                                    facilityDAO.retrieve("F003"), 
+                                    new BrosDate("29/09/2016 16:06"),
+                                    new BrosDate("18/11/2016 18:00"), 
+                                    2));
+        bookingList.add(new Booking(studentDAO.retrieve("simi"), 
+                                    facilityDAO.retrieve("F001"), 
+                                    new BrosDate("30/09/2016 17:00"),
+                                    new BrosDate("19/11/2016 10:00"), 
+                                    3));
     }
 
     /**
@@ -22,8 +48,7 @@ public class BookingDAO {
      * @return the list of bookings
      */
     public ArrayList<Booking> retrieveAll() {
-        // TODO
-        return null;
+        return bookingList;
     }
 
     /**
@@ -32,8 +57,15 @@ public class BookingDAO {
      * @return  the list of student's booking or an empty ArrayList if this student has no booking
      */
     public ArrayList<Booking> retrieve(String username) {
-        // TODO
-        return null;
+        int size = bookingList.size();
+        ArrayList<Booking> newList = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            Booking current = bookingList.get(i);
+            if (username.equals(current.getStudent().getUsername()))
+            newList.add(current);
+        }
+        return newList;
     }
 
     /**
@@ -44,7 +76,13 @@ public class BookingDAO {
      *         existing booking, false otherwise.
      */
     public boolean add(Booking newBooking) {
-        // TODO
-        return false;
+        int size = bookingList.size();
+        for (int i = 0; i < size; i++) {
+            Booking current = bookingList.get(i);
+            if (newBooking.overlaps(current)) return false;
+        }
+
+        bookingList.add(newBooking);
+        return true;
     }
 }
