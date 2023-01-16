@@ -47,6 +47,6 @@ public class Student {
      * @param amt the amount of money(e$) to deduct from the balance
      */
     public void deduct(int amt) {
-        //TO DO
+        eDollars -= amt;
     }
 }
