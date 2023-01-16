@@ -125,8 +125,8 @@ public class BrosMenu {
         for (int i = 0; i < size; i++) {
             Facility current = FacilArray.get(i);
             System.out.print(i + 1 + ".     ");
-            System.out.print(current.getId() + "    ");
-            System.out.print(current.getDescription() + "   ");
+            System.out.print(current.getId() + "  ");
+            System.out.print(current.getDescription() + "      ");
             System.out.println(current.getCapacity());
         }
     }
@@ -148,10 +148,10 @@ public class BrosMenu {
         for (int i = 0; i < size; i++) {
             Booking current = BookArray.get(i);
             System.out.print(current.getFacility().getId());
-            System.out.print("  " + current.getBookingDate());
+            System.out.print("      " + current.getBookingDate());
             System.out.print("  " + current.getStartDate());
             System.out.print("  " + current.getDuration());
-            System.out.println("   " + current.getStudent().getUsername());
+            System.out.println("          " + current.getStudent().getUsername());
         }
         
     }
@@ -209,10 +209,10 @@ public class BrosMenu {
         System.out.println("Facility   Booking DateTime  Start DateTime    Duration");
         for (int i = 0; i < size; i++) {
             Booking current = bookings.get(i);
-            System.out.print(current.getFacility());
+            System.out.print(current.getFacility().getId());
             System.out.print("       " + current.getBookingDate());
             System.out.print("  " + current.getStartDate());
-            System.out.println("    " + current.getDuration());
+            System.out.println("  " + current.getDuration());
         }
     }
 
@@ -256,19 +256,18 @@ public class BrosMenu {
         
         System.out.print("Enter number of hours >");
         int duration = sc.nextInt();
-
-        Booking newBooking = new Booking(student, facility, start, duration);
-
-        if (!bookingDAO.add(newBooking)) {
-            System.out.println("Booking overlaps with another booking. Please try again.");
-            return;
-        }
-
+        
         int balance = student.getBalance();
         int cost = facility.getPrice() * duration;
         if (balance < cost) {
-            System.out.println("You have E$ " + balance + " left");
+            System.out.println("You have E$" + balance + " left");
             System.out.println("You do not have enough E$ to book this facility.");
+            return;
+        }
+        
+        Booking newBooking = new Booking(student, facility, start, duration);
+        if (!bookingDAO.add(newBooking)) {
+            System.out.println("Booking overlaps with another booking. Please try again.");
             return;
         }
 

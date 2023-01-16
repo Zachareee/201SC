@@ -106,8 +106,11 @@ public class Booking {
         BrosDate endDate = getEndDate();
         BrosDate anotherStartDate = another.getStartDate();
         BrosDate anotherEndDate = another.getEndDate();
-        if (startDate.equals(anotherStartDate) || endDate.equals(anotherEndDate)
-        || (anotherStartDate.before(endDate) && anotherEndDate.after(startDate)))
+
+        Facility anotherFacility = another.getFacility();
+        if (anotherFacility.getId().equals(facility.getId())
+        && (startDate.equals(anotherStartDate) || endDate.equals(anotherEndDate)
+        || (anotherStartDate.before(endDate) && anotherEndDate.after(startDate))))
         return true;
         return false;
     }
