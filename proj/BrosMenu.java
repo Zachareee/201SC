@@ -237,13 +237,13 @@ public class BrosMenu {
         }
 
         System.out.print("Enter facility ID >");
-        String facilityID = sc.nextLine().trim();
+        String facilityID = sc.nextLine();
         Facility facility = facilityDAO.retrieve(facilityID);
         
         while (facility == null) {
             System.out.println("Facility is not available for booking. Please try again.");
             System.out.print("Enter facility ID >");
-            facilityID = sc.nextLine().trim();
+            facilityID = sc.nextLine();
             facility = facilityDAO.retrieve(facilityID);
         }
 
@@ -265,7 +265,7 @@ public class BrosMenu {
         }
 
         int balance = student.getBalance();
-        int cost = 2 * duration;
+        int cost = facility.getPrice() * duration;
         if (balance < cost) {
             System.out.println("You have E$ " + balance + " left");
             System.out.println("You do not have enough E$ to book this facility.");
