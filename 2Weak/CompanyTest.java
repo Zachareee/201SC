@@ -36,8 +36,7 @@ public class CompanyTest {
 
     public static void checkEmployee(Company comp, int id) {
         Employee employed = comp.getEmployee(id);
-        String spouse = employed.getSpouse() == null ?
-                "Single\nHe/she doesn't have a spouse"
+        String spouse = employed.getSpouse() == null ? "Single\nHe/she doesn't have a spouse"
                 : "Married\nSpouse's name: " + employed.getSpouse().getName();
 
         System.out.printf("Name: %s, Salary: $%.2f, Status: %s%n",
