@@ -1,15 +1,19 @@
 public class BubbleTeaTest {
 
     public static void displayHasPearlsTest(BubbleTea cup) {
-        System.out.println(cup.getBrand() + " has " + (cup.hasPearls() ? "" : "no ") + "pearls in it");
+        System.out.printf("%s has %spearls in it%n",
+                cup.getBrand(),
+                (cup.hasPearls() ? "" : "no "));
     }
 
     public static void displaySweetnessTest(BubbleTea cup) {
-        System.out.println(cup.getBrand() + (cup.isTooSweet() ? " is too sweet" : " is low in sugar"));
+        System.out.print(cup.getBrand());
+        System.out.println(cup.isTooSweet() ? " is too sweet"
+                : " is low in sugar");
     }
 
     public static void displaySweetnessComparison(BubbleTea cup1, BubbleTea cup2) {
-        if(cup2.isSweeterThan(cup1)) {
+        if (cup2.isSweeterThan(cup1)) {
             BubbleTea sweeter = cup1;
             cup1 = cup2;
             cup2 = sweeter;
@@ -17,7 +21,6 @@ public class BubbleTeaTest {
 
         System.out.println(cup1.getBrand() + " is sweeter than " + cup2.getBrand());
     }
-
 
     public static void main(String[] args) {
         // CLASSPATH
@@ -50,6 +53,5 @@ public class BubbleTeaTest {
         displaySweetnessComparison(cup1, cup3);
         displaySweetnessComparison(cup2, cup3);
         System.out.println();
-
     }
 }

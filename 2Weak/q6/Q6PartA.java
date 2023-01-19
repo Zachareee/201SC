@@ -2,10 +2,9 @@ import java.util.Scanner;
 
 public class Q6PartA {
     public static void main(String[] args) {
-    
+
         /* Creates a community garden. */
         CommunityGarden garden = new CommunityGarden("Duke Garden");
-
 
         System.out.println("Part A: InsertPlot");
         insertPlot(garden, 40, 60);
@@ -21,14 +20,13 @@ public class Q6PartA {
      *
      * garden - the specified community garden, assumed not null.
      * length - the plot's length
-     * breadth  - the plot's breadth
+     * breadth - the plot's breadth
      *
      * Note: There is no need to create a Plot object.
      */
 
     public static void insertPlot(CommunityGarden garden, int length, int breadth) {
         garden.addPlot(length, breadth);
-        
     }
 
 }
