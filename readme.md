@@ -38,3 +38,45 @@
 [Student.java](https://github.com/Zachareee/201SC/blob/main/proj/Student.java)
 
 [StudentDAO.java](https://github.com/Zachareee/201SC/blob/main/proj/StudentDAO.java)
+
+# **[2Weak](https://github.com/Zachareee/201SC/tree/main/2Weak)**
+
+[BankAccount.java](https://github.com/Zachareee/201SC/blob/main/2Weak/BankAccount.java)
+
+[BankApplication.java](https://github.com/Zachareee/201SC/blob/main/2Weak/BankApplication.java)
+
+[BubbleTeaTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/BubbleTeaTest.java)
+
+[CaloriesCalculatorTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/CaloriesCalculatorTest.java)
+
+[CashRegister.java](https://github.com/Zachareee/201SC/blob/main/2Weak/CashRegister.java)
+
+[CashRegisterTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/CashRegisterTest.java)
+
+[CompanyTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/CompanyTest.java)
+
+[Counter.java](https://github.com/Zachareee/201SC/blob/main/2Weak/Counter.java)
+
+[CounterTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/CounterTest.java)
+
+[Person.java](https://github.com/Zachareee/201SC/blob/main/2Weak/Person.java)
+
+[PersonTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/PersonTest.java)
+
+[RadioActiveTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/RadioActiveTest.java)
+
+[Rational.java](https://github.com/Zachareee/201SC/blob/main/2Weak/Rational.java)
+
+[RationalTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/RationalTest.java)
+
+[ShirtTest.java](https://github.com/Zachareee/201SC/blob/main/2Weak/ShirtTest.java)
+
+## **[2Weak/q6](https://github.com/Zachareee/201SC/tree/main/2Weak/q6)**
+
+[Q6PartA.java](https://github.com/Zachareee/201SC/blob/main/2Weak/q6/Q6PartA.java)
+
+[Q6PartB.java](https://github.com/Zachareee/201SC/blob/main/2Weak/q6/Q6PartB.java)
+
+[Q6PartC.java](https://github.com/Zachareee/201SC/blob/main/2Weak/q6/Q6PartC.java)
+
+[Q6PartD.java](https://github.com/Zachareee/201SC/blob/main/2Weak/q6/Q6PartD.java)
