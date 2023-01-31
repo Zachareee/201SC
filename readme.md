@@ -81,7 +81,6 @@
 
 [Q6PartD.java](https://github.com/Zachareee/201SC/blob/main/2Weak/q6/Q6PartD.java)
 
-
 # **[4Weak](https://github.com/Zachareee/201SC/tree/main/4Weak)**
 
 ## **[4Weak/Q1](https://github.com/Zachareee/201SC/tree/main/4Weak/Q1)**
@@ -111,6 +110,10 @@
 [TicketUtilityTest.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q3/TicketUtilityTest.java)
 
 ## **[4Weak/Q4](https://github.com/Zachareee/201SC/tree/main/4Weak/Q4)**
+
+[compile.bat](https://github.com/Zachareee/201SC/blob/main/4Weak/Q4/compile.bat)
+
+[run.bat](https://github.com/Zachareee/201SC/blob/main/4Weak/Q4/run.bat)
 
 ## **[4Weak/Q4/src](https://github.com/Zachareee/201SC/tree/main/4Weak/Q4/src)**
 
