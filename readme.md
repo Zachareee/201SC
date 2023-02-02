@@ -80,3 +80,57 @@
 [Q6PartC.java](https://github.com/Zachareee/201SC/blob/main/2Weak/q6/Q6PartC.java)
 
 [Q6PartD.java](https://github.com/Zachareee/201SC/blob/main/2Weak/q6/Q6PartD.java)
+
+# **[4Weak](https://github.com/Zachareee/201SC/tree/main/4Weak)**
+
+## **[4Weak/Q1](https://github.com/Zachareee/201SC/tree/main/4Weak/Q1)**
+
+[Commando.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q1/Commando.java)
+
+[Soldier.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q1/Soldier.java)
+
+[SoldierTest.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q1/SoldierTest.java)
+
+## **[4Weak/Q2](https://github.com/Zachareee/201SC/tree/main/4Weak/Q2)**
+
+[Car.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q2/Car.java)
+
+[Motocycle.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q2/Motocycle.java)
+
+[Vehicle.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q2/Vehicle.java)
+
+[VehicleTest.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q2/VehicleTest.java)
+
+## **[4Weak/Q3](https://github.com/Zachareee/201SC/tree/main/4Weak/Q3)**
+
+[AdvancedBookingTicket.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q3/AdvancedBookingTicket.java)
+
+[TicketUtility.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q3/TicketUtility.java)
+
+[TicketUtilityTest.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q3/TicketUtilityTest.java)
+
+## **[4Weak/Q4](https://github.com/Zachareee/201SC/tree/main/4Weak/Q4)**
+
+[compile.bat](https://github.com/Zachareee/201SC/blob/main/4Weak/Q4/compile.bat)
+
+[run.bat](https://github.com/Zachareee/201SC/blob/main/4Weak/Q4/run.bat)
+
+## **[4Weak/Q4/src](https://github.com/Zachareee/201SC/tree/main/4Weak/Q4/src)**
+
+## **[4Weak/Q4/src/ticketing](https://github.com/Zachareee/201SC/tree/main/4Weak/Q4/src/ticketing)**
+
+[AdvancedBookingTicket.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q4/src/ticketing/AdvancedBookingTicket.java)
+
+[TicketUtility.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q4/src/ticketing/TicketUtility.java)
+
+[TicketUtilityTest.java](https://github.com/Zachareee/201SC/blob/main/4Weak/Q4/src/ticketing/TicketUtilityTest.java)
+
+## **[4Weak/Q4/src/ticketing/entity](https://github.com/Zachareee/201SC/tree/main/4Weak/Q4/src/ticketing/entity)**
+
+## **[4Weak/Q5](https://github.com/Zachareee/201SC/tree/main/4Weak/Q5)**
+
+[Commando.py](https://github.com/Zachareee/201SC/blob/main/4Weak/Q5/Commando.py)
+
+[Soldier.py](https://github.com/Zachareee/201SC/blob/main/4Weak/Q5/Soldier.py)
+
+[SoldierTest.py](https://github.com/Zachareee/201SC/blob/main/4Weak/Q5/SoldierTest.py)
