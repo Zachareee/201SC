@@ -1,1 +1,1 @@
-javac -d classes -s src -cp src src/ticketing/TicketUtilityTest.java
+javac -d classes -cp src:classes src/ticketing/test/TicketUtilityTest.java
