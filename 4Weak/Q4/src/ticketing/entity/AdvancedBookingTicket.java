@@ -1,4 +1,4 @@
-package ticketing;
+package ticketing.entity;
 import ticketing.entity.*;
 
 public class AdvancedBookingTicket extends Ticket {

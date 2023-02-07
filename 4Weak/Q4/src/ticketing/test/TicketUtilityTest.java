@@ -1,6 +1,7 @@
-package ticketing;
+package ticketing.test;
 import java.util.ArrayList;
 import ticketing.entity.*;
+import ticketing.utility.*;
 
 public class TicketUtilityTest {
     public static void main(String[] args) {

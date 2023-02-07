@@ -8,4 +8,4 @@ class Commando(Soldier):
         return self.baseAllowance + self.vocationAllowance
 
     def __str__(self):
-        return f"Commando{{{Soldier.__str__(self)}, vocationAllowance={self.vocationAllowance}}}"
+        return f"Commando{{{super().__str__()}, vocationAllowance={self.vocationAllowance}}}"
