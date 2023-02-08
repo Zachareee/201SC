@@ -3,7 +3,7 @@ public class Cat extends Animal {
         super(name);
     }
 
-    public  void saySomething() {
+    public void saySomething() {
         System.out.println(getName() + " says meow meow");
     }
-    }
+}

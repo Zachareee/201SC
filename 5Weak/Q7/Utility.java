@@ -5,7 +5,7 @@ public class Utility {
         for (Animal a : aList) {
             a.saySomething();
         }
-        //aList.add(new Dog("pussy")); 
+        aList.add(new Dog("pussy"));
     }
 
     public static void main(String[] args) {
