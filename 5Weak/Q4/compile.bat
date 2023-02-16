@@ -1,0 +1,1 @@
+javac my_code/smu/bidding/App.java -cp ben_code:my_code:download -d my_compiled
